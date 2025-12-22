@@ -1,0 +1,21 @@
+{
+  "name": "finovoapi",
+  "version": "1.0.0",
+  "description": "An Invoice and Billing SaaS Backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "vaibhav choudhary",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.0.2",
+    "nodemon": "^3.1.11"
+  }
+}
