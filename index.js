@@ -15,6 +15,8 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({extended: true}));
 
+app.use('/',require('./routers/userRouters')); //dynamic routing
+
 const server = app.listen(port, (err) => {
     if(err){
         console.log('Server Crash'+ JSON.stringify(err));
