@@ -9,7 +9,7 @@ async function createUser(name, email, password, res) {
 
     const user = new User(userObj);
     const exists = await User.exists({
-        email: user.email
+        email: email
     });
 
     if(!exists){
@@ -19,7 +19,7 @@ async function createUser(name, email, password, res) {
         _id: userObj._id,
         });
     }
-    return res.status(403).json({ message:'User Already Exists! '});
+    return res.status(403).json({ message:'User Already Exists!'});
 }
 
 async function getUser(email){
@@ -36,5 +36,5 @@ async function getUser(email){
 module.exports = {
     createUser,
     getUser,
-    
+
 }
