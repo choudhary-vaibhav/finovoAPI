@@ -49,3 +49,29 @@ describe('create user', () => {
     });
   });
 });
+
+describe('get user', () =>{     
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
+    test('should return user document if user exists', async () => {
+        const mockUserDoc = { _id: '1234567890', name: 'John Doe', email: 'john@example.com' };
+
+        User.findOne.mockResolvedValue(mockUserDoc);
+
+        const result = await userServices.getUser('john@example.com');
+
+        expect(User.findOne).toHaveBeenCalledWith({ email: 'john@example.com' });
+        expect(result).toEqual(mockUserDoc);
+    });
+
+    test('should return null if user does not exist', async () => {
+        User.findOne.mockResolvedValue(null);   
+
+        const result = await userServices.getUser('nonexistent@example.com');
+
+        expect(User.findOne).toHaveBeenCalledWith({ email: 'nonexistent@example.com' });
+        expect(result).toBeNull();
+    });
+});

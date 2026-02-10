@@ -26,11 +26,8 @@ async function getUser(email){
     const userDoc = await User.findOne({
         email: email
     });
-
-    if(userDoc){
-        return userDoc;
-    }
-    return null;
+    
+    return userDoc;
 }
 
 module.exports = {
